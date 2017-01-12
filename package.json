@@ -1,6 +1,6 @@
 {
   "name": "builddependencies",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Install the dependencies needed to build a module",
   "main": "index.js",
   "bin": {
