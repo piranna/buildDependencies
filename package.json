@@ -1,0 +1,23 @@
+{
+  "name": "builddependencies",
+  "version": "0.0.0",
+  "description": "Install the dependencies needed to build a module",
+  "main": "index.js",
+  "bin": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piranna/buildDependencies.git"
+  },
+  "keywords": [
+    "prebuild"
+  ],
+  "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piranna/buildDependencies/issues"
+  },
+  "homepage": "https://github.com/piranna/buildDependencies#readme"
+}
