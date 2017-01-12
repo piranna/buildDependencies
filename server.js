@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
+const resolve = require('path').resolve
+
 const buildDependencies = require('.')
 
 
-buildDependencies(require('./package.json'), process.argv[2], process.exit)
+const PKG = require(resolve('package.json'))
+
+
+buildDependencies(PKG, process.argv[2], process.exit)
