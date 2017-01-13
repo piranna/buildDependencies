@@ -8,4 +8,4 @@ const buildDependencies = require('.')
 const PKG = require(resolve('package.json'))
 
 
-buildDependencies(PKG, process.argv[2], process.exit)
+buildDependencies(PKG, process.argv[2], process.argv.slice(3), process.exit)

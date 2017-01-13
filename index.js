@@ -7,16 +7,24 @@ function depVer(dependency)
 }
 
 
-function buildDependencies(PKG, dependenciesField, callback)
+function buildDependencies(PKG, dependenciesField, argv, callback)
 {
   // Adjust the arguments
-  if(dependenciesField instanceof Function)
+  if(argv instanceof Array || argv instanceof Function)
   {
-    callback = dependenciesField
+    callback = argv
+    argv = dependenciesField
     dependenciesField = null
   }
 
+  if(argv instanceof Function)
+  {
+    callback = argv
+    argv = null
+  }
+
   dependenciesField = dependenciesField || 'buildDependencies'
+  argv = argv || []
 
   // Get the build dependencies list
   var buildDependencies = PKG[dependenciesField] || []
@@ -39,6 +47,7 @@ function buildDependencies(PKG, dependenciesField, callback)
   }
 
   buildDependencies.unshift('install')
+  Array.prototype.push.apply(buildDependencies, argv)
 
   spawn('npm', buildDependencies, {stdio: 'inherit'})
   .on('error', errorOrExit)
