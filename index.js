@@ -10,7 +10,7 @@ function depVer(dependency)
 function buildDependencies(PKG, dependenciesField, argv, callback)
 {
   // Adjust the arguments
-  if(argv instanceof Array || argv instanceof Function)
+  if(dependenciesField instanceof Array || dependenciesField instanceof Function)
   {
     callback = argv
     argv = dependenciesField
@@ -49,7 +49,7 @@ function buildDependencies(PKG, dependenciesField, argv, callback)
   buildDependencies.unshift('install')
   Array.prototype.push.apply(buildDependencies, argv)
 
-  spawn('npm', buildDependencies, {stdio: 'inherit'})
+  spawn('npm', buildDependencies, {stdio: 'inherit', env: process.env })
   .on('error', errorOrExit)
   .on('exit', errorOrExit)
 }
