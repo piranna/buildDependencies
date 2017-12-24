@@ -10,7 +10,7 @@ function depVer(dependency)
 function buildDependencies(PKG, dependenciesField, argv, callback)
 {
   // Adjust the arguments
-  if(argv instanceof Function)
+  if(dependenciesField instanceof Array || dependenciesField instanceof Function)
   {
     callback = argv
     argv = dependenciesField
@@ -43,7 +43,7 @@ function buildDependencies(PKG, dependenciesField, argv, callback)
     if(finished) return
     finished = true
 
-    return callback(errCode || signal)
+    callback(errCode || signal)
   }
 
   buildDependencies.unshift('install')
